@@ -18,12 +18,9 @@ In this project we will perform analysis on the ToothGrowth data in the R datase
 ##Loading Libraries & Data
 
 ```{r library, warning=FALSE}
-#Loading essential Libraries
 library(datasets)
 library(ggplot2)
-#Loading ToothGrowth data and looking at its contents
 data(ToothGrowth)
-head(ToothGrowth)
 str(ToothGrowth)
 ```
 
@@ -31,12 +28,9 @@ str(ToothGrowth)
 
 Performing some Exploratory Data Analysis in order to get an idea about the contents of the Dataset like for example how data is distributed based on different supplements & amount of doses. 
 
-```{r explore}
-#Plotting a graph using ggplot function to visualize the relations 
-#between various attributes in the Dataset
+```{r explore, fig.width = 6, fig.height = 4, fig.align='center'}
 ggplot(data = ToothGrowth, aes(dose, len, color = supp)) + 
-      geom_point() + 
-      geom_smooth(method = "lm")
+      geom_point() + geom_smooth(method = "lm")
 ```
 
 ##Summarizing the Dataset
@@ -45,13 +39,11 @@ Summarinzing the Dataset to find out additional information about the extent of 
 
 Categorizing based on levels of the Supplements and Amount of Doses attributes to analyze their results on the change in the Tooth Length based on the medication for several patients.
 
-```{r summary}
+```{r summary, fig.width = 6, fig.height = 5, fig.align='center'}
 summary(ToothGrowth)
 sd(ToothGrowth$len)
-ggplot(ToothGrowth, aes(dose, len, color = supp)) + 
-      geom_point() + facet_grid(dose ~ supp) + 
-      ggtitle("ToothGrowth Results") + 
-      xlab("Dose of Supplements") + ylab("Length of Teeth Growth")
+ggplot(ToothGrowth, aes(dose, len, color = supp)) + geom_point() + facet_grid(dose ~ supp) + 
+      ggtitle("ToothGrowth Results") + xlab("Dose of Supplements") + ylab("Length of Teeth Growth")
 ```
 
 ##Hypothesis Test - Based on Type of Supplement

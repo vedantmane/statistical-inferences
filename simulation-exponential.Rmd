@@ -16,8 +16,9 @@ Illustrate via simulation and associated explanatory text the properties of the 
 * Show how variable the sample is (via variance) and compare it to the theoretical variance of the distribution.
 * Show that the distribution is approximately normal.
 
-```{r initialize, cache=TRUE, warning=FALSE}
+```{r initialize, warning=FALSE}
 library(ggplot2)
+set.seed(123)
 #Initialing given information
 sim <- 1000
 n <- 40
